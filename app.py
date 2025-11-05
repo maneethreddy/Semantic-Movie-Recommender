@@ -239,7 +239,7 @@ def get_recommendations_by_preferences():
 def view_graph():
     """Serve the knowledge graph visualization."""
     # Generate visualization HTML showing ontology structure
-    html_file = visualize_ontology_graph(graph, max_movies=10)
+    html_file = visualize_ontology_graph(graph, max_movies=5)
     
     # Read and return the HTML content
     with open(html_file, 'r', encoding='utf-8') as f:
