@@ -9,7 +9,6 @@ from semantic_reasoner import apply_all_rules
 from queries import query_similar_movies, get_all_movies, query_movie_details, query_by_preferences
 from explanation_generator import generate_explanation, get_rdf_triples_for_movie
 from visualize import visualize_ontology_graph
-import networkx as nx
 import os
 
 app = Flask(__name__)
