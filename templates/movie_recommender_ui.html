@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Movie Recommendation System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 300;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header-icon {
+            font-size: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px 20px;
+            background: transparent;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .tab:hover:not(.active) {
+            background: #f5f5f5;
+            border-color: #667eea;
+        }
+
+        .search-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+
+        .search-card h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .search-card p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .input-field {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .input-field.full-width {
+            flex: 1 1 100%;
+        }
+
+        .input-field label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .input-field select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 45px;
+        }
+
+        .input-field select:hover {
+            border-color: #667eea;
+        }
+
+        .input-field select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-get-recommendations {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            white-space: nowrap;
+        }
+
+        .btn-get-recommendations:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-get-recommendations:active {
+            transform: translateY(0);
+        }
+
+        .btn-get-recommendations:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .results-section {
+            margin-top: 40px;
+        }
+
+        .results-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .results-header h2 {
+            font-size: 1.8rem;
+            color: #333;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .results-count {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .semantic-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .movie-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .movie-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie-content {
+            padding: 24px;
+        }
+
+        .movie-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .movie-title .icon {
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+
+        .movie-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .movie-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .movie-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            min-height: 48px;
+        }
+
+        .similarity-score {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .score-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .score-bar {
+            height: 8px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .score-value {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .movie-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tag-genre {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+
+        .tag-director {
+            background: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+        }
+
+        .tag-rating {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            color: #667eea;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid rgba(102, 126, 234, 0.2);
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .header-links {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header-link {
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.25);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-link:hover {
+            background: rgba(255,255,255,0.35);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .input-field {
+                min-width: 100%;
+            }
+
+            .movie-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>
+                <span class="header-icon">🎬</span>
+                Semantic Movie Recommender
+            </h1>
+            <p class="subtitle">
+                Powered by RDF Ontology & Semantic Reasoning
+                <a href="/graph" target="_blank" class="header-link">📊 View Knowledge Graph</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" data-tab="movie-selection">
+                📽️ Select a Movie
+            </button>
+            <button class="tab" data-tab="preferences">
+                🎭 Filter by Preferences
+            </button>
+        </div>
+
+        <!-- Movie Selection Tab -->
+        <div class="tab-content active" id="movie-selection">
+            <div class="search-card">
+                <h2>Find Similar Movies</h2>
+                <p>Select a movie you like and get recommendations based on semantic similarity.</p>
+                
+                <div class="input-group">
+                    <div class="input-field">
+                        <label>
+                            <span>🎞️</span>
+                            Select a Movie
+                        </label>
+                        <select id="movieSelect">
+                            <option value="">Loading movies...</option>
+                        </select>
+                    </div>
+                    <button class="btn-get-recommendations" id="getRecommendationsBtn">
+                        <span>🔍</span>
+                        Get Recommendations
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preferences Tab -->
+        <div class="tab-content" id="preferences">
+            <div class="search-card">
+                <h2>Find Your Perfect Movie</h2>
+                <p>Customize your search to find movies that match your viewing style.</p>
+                
+                <div class="input-group">
+                    <div class="input-field">
+                        <label>
+                            <span>🎭</span>
+                            Genre Preference
+                        </label>
+                        <select id="genreSelect">
+                            <option value="any">Any Genre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-field">
+                        <label>
+                            <span>⭐</span>
+                            Rating Range
+                        </label>
+                        <select id="ratingSelect">
+                            <option value="any">Any Rating</option>
+                        </select>
+                    </div>
+                    <button class="btn-get-recommendations" id="getPreferencesBtn">
+                        Get Recommendations →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analyzing semantic connections...</p>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h2>
+                    📊 Recommended Movies
+                    <span class="semantic-badge">🎯 Semantic Similarity</span>
+                </h2>
+                <span class="results-count" id="resultsCount">Found 0 movies</span>
+            </div>
+            <div class="movie-grid" id="movieGrid"></div>
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">🎭</div>
+            <h3>No movies found</h3>
+            <p>Try adjusting your preferences or select a different movie</p>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        let filters = { genres: [], rating_ranges: [] };
+        let currentMode = 'movie-selection';
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.dataset.tab;
+                
+                // Update tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(tabName).classList.add('active');
+                
+                currentMode = tabName;
+                
+                // Clear results
+                document.getElementById('resultsSection').style.display = 'none';
+                document.getElementById('noResults').style.display = 'none';
+            });
+        });
+
+        // Load filters
+        async function loadFilters() {
+            try {
+                const response = await fetch(`${API_BASE}/api/filters`);
+                filters = await response.json();
+                
+                // Populate genre dropdown
+                const genreSelect = document.getElementById('genreSelect');
+                filters.genres.forEach(genre => {
+                    const option = document.createElement('option');
+                    option.value = genre.id;
+                    option.textContent = genre.label;
+                    genreSelect.appendChild(option);
+                });
+                
+                // Populate rating dropdown
+                const ratingSelect = document.getElementById('ratingSelect');
+                filters.rating_ranges.forEach(range => {
+                    const option = document.createElement('option');
+                    option.value = range.id;
+                    option.textContent = range.label;
+                    ratingSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading filters:', error);
+            }
+        }
+
+        // Load movies
+        async function loadMovies() {
+            try {
+                const response = await fetch(`${API_BASE}/api/movies`);
+                const movies = await response.json();
+                
+                const select = document.getElementById('movieSelect');
+                select.innerHTML = '<option value="">Choose a movie...</option>';
+                
+                movies.forEach(movie => {
+                    const option = document.createElement('option');
+                    option.value = movie.id;
+                    option.textContent = `${movie.title} (${movie.rating.toFixed(1)}) ⭐ ${movie.rating.toFixed(1)}`;
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading movies:', error);
+                const select = document.getElementById('movieSelect');
+                select.innerHTML = '<option value="">Error loading movies. Please refresh the page.</option>';
+            }
+        }
+
+        // Display recommendations from movie selection
+        async function displayMovieRecommendations(movieId) {
+            const loading = document.getElementById('loading');
+            const resultsSection = document.getElementById('resultsSection');
+            const noResults = document.getElementById('noResults');
+            const btn = document.getElementById('getRecommendationsBtn');
+            
+            loading.classList.add('active');
+            resultsSection.style.display = 'none';
+            noResults.style.display = 'none';
+            btn.disabled = true;
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/recommendations`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ movie_id: movieId })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to get recommendations');
+                }
+                
+                const data = await response.json();
+                const recommendations = data.recommendations || [];
+                
+                if (recommendations.length === 0) {
+                    resultsSection.style.display = 'none';
+                    noResults.style.display = 'block';
+                    return;
+                }
+                
+                noResults.style.display = 'none';
+                resultsSection.style.display = 'block';
+                
+                document.getElementById('resultsCount').textContent = `Found ${recommendations.length} ${recommendations.length === 1 ? 'movie' : 'movies'}`;
+                
+                displayRecommendations(recommendations, 'similarity');
+            } catch (error) {
+                console.error('Error fetching recommendations:', error);
+                noResults.style.display = 'block';
+                noResults.innerHTML = `
+                    <div class="no-results-icon">⚠️</div>
+                    <h3>Error loading recommendations</h3>
+                    <p>Please try again later</p>
+                `;
+            } finally {
+                loading.classList.remove('active');
+                btn.disabled = false;
+            }
+        }
+
+        // Get recommendations by preferences
+        async function getRecommendationsByPreferences() {
+            const genre = document.getElementById('genreSelect').value;
+            const ratingRange = document.getElementById('ratingSelect').value;
+            
+            const loading = document.getElementById('loading');
+            const resultsSection = document.getElementById('resultsSection');
+            const noResults = document.getElementById('noResults');
+            const btn = document.getElementById('getPreferencesBtn');
+            
+            loading.classList.add('active');
+            resultsSection.style.display = 'none';
+            noResults.style.display = 'none';
+            btn.disabled = true;
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/recommendations/preferences`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        genre: genre,
+                        rating_range: ratingRange
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to get recommendations');
+                }
+                
+                const data = await response.json();
+                const recommendations = data.recommendations || [];
+                
+                if (recommendations.length === 0) {
+                    resultsSection.style.display = 'none';
+                    noResults.style.display = 'block';
+                    return;
+                }
+                
+                noResults.style.display = 'none';
+                resultsSection.style.display = 'block';
+                
+                document.getElementById('resultsCount').textContent = `Found ${recommendations.length} ${recommendations.length === 1 ? 'movie' : 'movies'}`;
+                
+                displayRecommendations(recommendations, 'preferences');
+            } catch (error) {
+                console.error('Error fetching recommendations:', error);
+                noResults.style.display = 'block';
+                noResults.innerHTML = `
+                    <div class="no-results-icon">⚠️</div>
+                    <h3>Error loading recommendations</h3>
+                    <p>Please try again later</p>
+                `;
+            } finally {
+                loading.classList.remove('active');
+                btn.disabled = false;
+            }
+        }
+
+        // Display recommendations
+        function displayRecommendations(recommendations, type) {
+            const grid = document.getElementById('movieGrid');
+            grid.innerHTML = '';
+            
+            recommendations.forEach(movie => {
+                const card = document.createElement('div');
+                card.className = 'movie-card';
+                
+                let cardHTML = `
+                    <div class="movie-image">🎬</div>
+                    <div class="movie-content">
+                        <div class="movie-title">
+                            <span><span class="icon">🎬</span>${movie.title}</span>
+                            <span class="movie-rating">⭐ ${movie.rating.toFixed(1)}</span>
+                        </div>
+                        ${movie.year ? `<div class="movie-meta">${movie.year}</div>` : ''}
+                `;
+                
+                if (type === 'similarity') {
+                    // Show similarity score
+                    const score = (movie.similarity_score * 100).toFixed(1);
+                    cardHTML += `
+                        <div class="similarity-score">
+                            <div class="score-label">Semantic Similarity Score</div>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="score-value">${score}%</div>
+                        </div>
+                    `;
+                } else {
+                    // Show description and tags
+                    cardHTML += `
+                        <div class="movie-description">
+                            ${movie.description || `${movie.title} is a great film.`}
+                        </div>
+                        <div class="movie-tags">
+                            ${movie.tags ? movie.tags.map(tag => {
+                                let tagClass = 'tag-genre';
+                                if (tag.type === 'director') tagClass = 'tag-director';
+                                if (tag.type === 'rating') tagClass = 'tag-rating';
+                                
+                                let icon = '🎭';
+                                if (tag.type === 'director') icon = '🎬';
+                                if (tag.type === 'rating') icon = '⭐';
+                                
+                                return `<span class="tag ${tagClass}">${icon} ${tag.label}</span>`;
+                            }).join('') : ''}
+                        </div>
+                    `;
+                }
+                
+                cardHTML += `</div>`;
+                card.innerHTML = cardHTML;
+                grid.appendChild(card);
+                
+                // Animate score bar
+                if (type === 'similarity') {
+                    setTimeout(() => {
+                        const fill = card.querySelector('.score-fill');
+                        fill.style.width = movie.similarity_score * 100 + '%';
+                    }, 100);
+                }
+            });
+        }
+
+        // Event listeners
+        document.getElementById('getRecommendationsBtn').addEventListener('click', () => {
+            const selectedMovie = document.getElementById('movieSelect').value;
+            if (!selectedMovie) {
+                document.getElementById('noResults').style.display = 'block';
+                document.getElementById('noResults').innerHTML = `
+                    <div class="no-results-icon">🎭</div>
+                    <h3>No movie selected</h3>
+                    <p>Please select a movie from the dropdown above</p>
+                `;
+                return;
+            }
+            displayMovieRecommendations(selectedMovie);
+        });
+
+        document.getElementById('getPreferencesBtn').addEventListener('click', getRecommendationsByPreferences);
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            loadFilters();
+            loadMovies();
+        });
+    </script>
+</body>
+</html>

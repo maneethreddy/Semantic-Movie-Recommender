@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Movie Recommendation System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1A201E;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            color: #FFFFFF;
+        }
+
+        /* Animated background graph visualization */
+        #graph-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.08;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .graph-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .graph-edge {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+            transform-origin: left center;
+            opacity: 0.2;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #FFFFFF;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .header h1 .highlight {
+            color: #4CAF50;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .main-card {
+            background: #252B29;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .input-section {
+            margin-bottom: 40px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .select-wrapper {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .select-wrapper label {
+            display: block;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .movie-icon {
+            font-size: 1.2rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #1A201E;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234CAF50' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            padding-right: 50px;
+        }
+
+        select:hover {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+
+        select option {
+            background: #1A201E;
+            color: #FFFFFF;
+        }
+
+        .btn-get-recommendations {
+            padding: 15px 35px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
+        .btn-get-recommendations:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-get-recommendations:active {
+            transform: translateY(0);
+        }
+
+        .btn-get-recommendations:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .graph-btn {
+            margin-left: 15px;
+            padding: 8px 16px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .graph-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .results-section {
+            margin-top: 40px;
+        }
+
+        .results-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            color: #FFFFFF;
+        }
+
+        .results-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background: #1A201E;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(76, 175, 80, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #4CAF50;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50;
+        }
+
+        .movie-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .movie-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .movie-rating {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #4CAF50;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .similarity-score {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .score-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 5px;
+        }
+
+        .score-bar {
+            height: 6px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: #4CAF50;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            color: #4CAF50;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid rgba(76, 175, 80, 0.2);
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .semantic-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(76, 175, 80, 0.2);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .select-wrapper {
+                min-width: 100%;
+            }
+
+            .btn-get-recommendations {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated graph background -->
+    <div id="graph-background"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🎬 Semantic <span class="highlight">Movie</span> Recommender</h1>
+            <div class="subtitle">
+                Powered by RDF Ontology & Semantic Reasoning
+                <a href="/graph" target="_blank" class="graph-btn">
+                    📊 View Knowledge Graph
+                </a>
+            </div>
+        </div>
+
+        <div class="main-card">
+            <div class="input-section">
+                <div class="input-group">
+                    <div class="select-wrapper">
+                        <label>
+                            <span class="movie-icon">🎞️</span>
+                            Select a Movie
+                        </label>
+                        <select id="movieSelect">
+                            <option value="">Loading movies...</option>
+                        </select>
+                    </div>
+                    <button class="btn-get-recommendations" id="getRecommendationsBtn">
+                        <span>🔍</span>
+                        Get Recommendations
+                    </button>
+                </div>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Analyzing semantic connections...</p>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2>📊 Recommended Movies</h2>
+                    <span class="semantic-badge">🎯 Semantic Similarity</span>
+                </div>
+                <div class="recommendations-grid" id="recommendationsGrid"></div>
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">🎭</div>
+                <h3>No movie selected</h3>
+                <p>Please select a movie from the dropdown above to get recommendations</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // API base URL
+        const API_BASE = window.location.origin;
+
+        // Create animated graph background
+        function createGraphBackground() {
+            const container = document.getElementById('graph-background');
+            const nodes = [];
+            const edges = [];
+
+            // Create nodes
+            for (let i = 0; i < 25; i++) {
+                const node = document.createElement('div');
+                node.className = 'graph-node';
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                node.style.left = x + '%';
+                node.style.top = y + '%';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(node);
+                nodes.push({ x, y });
+            }
+
+            // Create edges
+            for (let i = 0; i < 15; i++) {
+                const node1 = nodes[Math.floor(Math.random() * nodes.length)];
+                const node2 = nodes[Math.floor(Math.random() * nodes.length)];
+                
+                const dx = node2.x - node1.x;
+                const dy = node2.y - node1.y;
+                const length = Math.sqrt(dx * dx + dy * dy);
+                const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+                const edge = document.createElement('div');
+                edge.className = 'graph-edge';
+                edge.style.left = node1.x + '%';
+                edge.style.top = node1.y + '%';
+                edge.style.width = length + '%';
+                edge.style.transform = `rotate(${angle}deg)`;
+                edge.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(edge);
+            }
+        }
+
+        // Load movies into dropdown
+        async function loadMovies() {
+            try {
+                const response = await fetch(`${API_BASE}/api/movies`);
+                const movies = await response.json();
+                
+                const select = document.getElementById('movieSelect');
+                select.innerHTML = '<option value="">Choose a movie...</option>';
+                
+                movies.forEach(movie => {
+                    const option = document.createElement('option');
+                    option.value = movie.id;
+                    option.textContent = `${movie.title} (${movie.rating.toFixed(1)}) ⭐ ${movie.rating.toFixed(1)}`;
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading movies:', error);
+                const select = document.getElementById('movieSelect');
+                select.innerHTML = '<option value="">Error loading movies. Please refresh the page.</option>';
+            }
+        }
+
+        async function displayRecommendations(movieId) {
+            try {
+                const response = await fetch(`${API_BASE}/api/recommendations`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ movie_id: movieId })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to get recommendations');
+                }
+                
+                const data = await response.json();
+                const recommendations = data.recommendations;
+                
+                if (!recommendations || recommendations.length === 0) {
+                    document.getElementById('resultsSection').style.display = 'none';
+                    document.getElementById('noResults').style.display = 'block';
+                    document.getElementById('noResults').innerHTML = `
+                        <div class="no-results-icon">🎭</div>
+                        <h3>No recommendations found</h3>
+                        <p>No similar movies found in the knowledge base</p>
+                    `;
+                    return;
+                }
+
+                document.getElementById('noResults').style.display = 'none';
+                document.getElementById('resultsSection').style.display = 'block';
+                
+                const grid = document.getElementById('recommendationsGrid');
+                grid.innerHTML = '';
+
+                recommendations.forEach(rec => {
+                    const card = document.createElement('div');
+                    card.className = 'movie-card';
+                    
+                    // Build explanation HTML
+                    let explanationHTML = '';
+                    if (rec.explanation && rec.explanation.length > 0) {
+                        explanationHTML = `
+                            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+                                <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 8px; font-weight: 600;">🧠 Why Recommended:</div>
+                                <ul style="margin: 0; padding-left: 20px; font-size: 0.85rem; color: rgba(255,255,255,0.9);">
+                                    ${rec.explanation.map(reason => `<li style="margin-bottom: 4px;">${reason}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `;
+                    }
+                    
+                    card.innerHTML = `
+                        <div class="movie-title">
+                            🎬 ${rec.title}
+                            <span class="movie-rating">⭐ ${rec.rating.toFixed(1)}</span>
+                        </div>
+                        <div class="similarity-score">
+                            <div class="score-label">Semantic Similarity Score</div>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 0%"></div>
+                            </div>
+                            <div style="color: #4CAF50; font-weight: 600; margin-top: 5px; font-size: 0.95rem;">
+                                ${(rec.similarity_score * 100).toFixed(1)}%
+                            </div>
+                        </div>
+                        ${explanationHTML}
+                    `;
+                    grid.appendChild(card);
+
+                    // Animate score bar
+                    setTimeout(() => {
+                        const fill = card.querySelector('.score-fill');
+                        fill.style.width = rec.similarity_score * 100 + '%';
+                    }, 100);
+                });
+            } catch (error) {
+                console.error('Error fetching recommendations:', error);
+                document.getElementById('resultsSection').style.display = 'none';
+                document.getElementById('noResults').style.display = 'block';
+                document.getElementById('noResults').innerHTML = `
+                    <div class="no-results-icon">⚠️</div>
+                    <h3>Error loading recommendations</h3>
+                    <p>Please try again later</p>
+                `;
+            }
+        }
+
+        document.getElementById('getRecommendationsBtn').addEventListener('click', () => {
+            const selectedMovie = document.getElementById('movieSelect').value;
+            
+            if (!selectedMovie) {
+                document.getElementById('resultsSection').style.display = 'none';
+                document.getElementById('noResults').style.display = 'block';
+                return;
+            }
+
+            const loading = document.getElementById('loading');
+            const resultsSection = document.getElementById('resultsSection');
+            
+            loading.classList.add('active');
+            resultsSection.style.display = 'none';
+            document.getElementById('getRecommendationsBtn').disabled = true;
+
+            displayRecommendations(selectedMovie).finally(() => {
+                loading.classList.remove('active');
+                document.getElementById('getRecommendationsBtn').disabled = false;
+            });
+        });
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            createGraphBackground();
+            loadMovies();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+rdflib
+networkx
+node2vec
+pandas
+scikit-learn
+pyvis
+flask
+

@@ -1,0 +1,1302 @@
+@prefix : <http://example.org/movie#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Movies
+:m_inception a :Movie ;
+    rdfs:label "Inception" ;
+    :hasRating 8.8 ;
+    :releasedIn 2010 ;
+    :hasGenre :genre_Sci-Fi, :genre_Thriller ;
+    :hasActor :actor_Leonardo_DiCaprio, :actor_Joseph_Gordon-Levitt, :actor_Ellen_Page ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+:m_interstellar a :Movie ;
+    rdfs:label "Interstellar" ;
+    :hasRating 8.6 ;
+    :releasedIn 2014 ;
+    :hasGenre :genre_Sci-Fi, :genre_Drama ;
+    :hasActor :actor_Matthew_McConaughey, :actor_Anne_Hathaway, :actor_Jessica_Chastain ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+:m_dark_knight a :Movie ;
+    rdfs:label "The Dark Knight" ;
+    :hasRating 9.0 ;
+    :releasedIn 2008 ;
+    :hasGenre :genre_Action, :genre_Crime, :genre_Thriller ;
+    :hasActor :actor_Christian_Bale, :actor_Heath_Ledger, :actor_Aaron_Eckhart ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+:m_prestige a :Movie ;
+    rdfs:label "The Prestige" ;
+    :hasRating 8.5 ;
+    :releasedIn 2006 ;
+    :hasGenre :genre_Drama, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Christian_Bale, :actor_Hugh_Jackman, :actor_Scarlett_Johansson ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+:m_departed a :Movie ;
+    rdfs:label "The Departed" ;
+    :hasRating 8.5 ;
+    :releasedIn 2006 ;
+    :hasGenre :genre_Crime, :genre_Thriller, :genre_Drama ;
+    :hasActor :actor_Leonardo_DiCaprio, :actor_Matt_Damon, :actor_Jack_Nicholson ;
+    :directedBy :director_Martin_Scorsese ;
+    :hasLanguage :lang_English .
+
+:m_shutter a :Movie ;
+    rdfs:label "Shutter Island" ;
+    :hasRating 8.1 ;
+    :releasedIn 2010 ;
+    :hasGenre :genre_Thriller, :genre_Mystery ;
+    :hasActor :actor_Leonardo_DiCaprio, :actor_Mark_Ruffalo ;
+    :directedBy :director_Martin_Scorsese ;
+    :hasLanguage :lang_English .
+
+:m_pulp a :Movie ;
+    rdfs:label "Pulp Fiction" ;
+    :hasRating 8.9 ;
+    :releasedIn 1994 ;
+    :hasGenre :genre_Crime, :genre_Drama ;
+    :hasActor :actor_John_Travolta, :actor_Samuel_L_Jackson, :actor_Uma_Thurman ;
+    :directedBy :director_Quentin_Tarantino ;
+    :hasLanguage :lang_English .
+
+:m_django a :Movie ;
+    rdfs:label "Django Unchained" ;
+    :hasRating 8.4 ;
+    :releasedIn 2012 ;
+    :hasGenre :genre_Drama, :genre_Western ;
+    :hasActor :actor_Jamie_Foxx, :actor_Leonardo_DiCaprio, :actor_Christoph_Waltz ;
+    :directedBy :director_Quentin_Tarantino ;
+    :hasLanguage :lang_English .
+
+:m_avengers a :Movie ;
+    rdfs:label "Avengers Endgame" ;
+    :hasRating 8.4 ;
+    :releasedIn 2019 ;
+    :hasGenre :genre_Action, :genre_Sci-Fi ;
+    :hasActor :actor_Robert_Downey_Jr, :actor_Chris_Evans, :actor_Mark_Ruffalo ;
+    :directedBy :director_Anthony_Russo ;
+    :hasLanguage :lang_English .
+
+:m_iron_man a :Movie ;
+    rdfs:label "Iron Man" ;
+    :hasRating 7.9 ;
+    :releasedIn 2008 ;
+    :hasGenre :genre_Action, :genre_Sci-Fi ;
+    :hasActor :actor_Robert_Downey_Jr, :actor_Gwyneth_Paltrow, :actor_Jeff_Bridges ;
+    :directedBy :director_Jon_Favreau ;
+    :hasLanguage :lang_English .
+
+:m_matrix a :Movie ;
+    rdfs:label "The Matrix" ;
+    :hasRating 8.7 ;
+    :releasedIn 1999 ;
+    :hasGenre :genre_Action, :genre_Sci-Fi ;
+    :hasActor :actor_Keanu_Reeves, :actor_Laurence_Fishburne, :actor_Carrie-Anne_Moss ;
+    :directedBy :director_Wachowskis ;
+    :hasLanguage :lang_English .
+
+:m_gladiator a :Movie ;
+    rdfs:label "Gladiator" ;
+    :hasRating 8.5 ;
+    :releasedIn 2000 ;
+    :hasGenre :genre_Action, :genre_Drama ;
+    :hasActor :actor_Russell_Crowe, :actor_Joaquin_Phoenix, :actor_Connie_Nielsen ;
+    :directedBy :director_Ridley_Scott ;
+    :hasLanguage :lang_English .
+
+:m_fight_club a :Movie ;
+    rdfs:label "Fight Club" ;
+    :hasRating 8.8 ;
+    :releasedIn 1999 ;
+    :hasGenre :genre_Drama, :genre_Thriller ;
+    :hasActor :actor_Brad_Pitt, :actor_Edward_Norton, :actor_Helena_Bonham_Carter ;
+    :directedBy :director_David_Fincher ;
+    :hasLanguage :lang_English .
+
+:m_godfather a :Movie ;
+    rdfs:label "The Godfather" ;
+    :hasRating 9.2 ;
+    :releasedIn 1972 ;
+    :hasGenre :genre_Crime, :genre_Drama ;
+    :hasActor :actor_Marlon_Brando, :actor_Al_Pacino, :actor_James_Caan ;
+    :directedBy :director_Francis_Ford_Coppola ;
+    :hasLanguage :lang_English .
+
+:m_godfather2 a :Movie ;
+    rdfs:label "The Godfather Part II" ;
+    :hasRating 9.0 ;
+    :releasedIn 1974 ;
+    :hasGenre :genre_Crime, :genre_Drama ;
+    :hasActor :actor_Al_Pacino, :actor_Robert_De_Niro, :actor_Robert_Duvall ;
+    :directedBy :director_Francis_Ford_Coppola ;
+    :hasLanguage :lang_English .
+
+:m_shawshank a :Movie ;
+    rdfs:label "The Shawshank Redemption" ;
+    :hasRating 9.3 ;
+    :releasedIn 1994 ;
+    :hasGenre :genre_Drama ;
+    :hasActor :actor_Tim_Robbins, :actor_Morgan_Freeman, :actor_Bob_Gunton ;
+    :directedBy :director_Frank_Darabont ;
+    :hasLanguage :lang_English .
+
+:m_schindler a :Movie ;
+    rdfs:label "Schindler's List" ;
+    :hasRating 9.0 ;
+    :releasedIn 1993 ;
+    :hasGenre :genre_Drama, :genre_War ;
+    :hasActor :actor_Liam_Neeson, :actor_Ralph_Fiennes, :actor_Ben_Kingsley ;
+    :directedBy :director_Steven_Spielberg ;
+    :hasLanguage :lang_English, :lang_German, :lang_Polish .
+
+:m_parasite a :Movie ;
+    rdfs:label "Parasite" ;
+    :hasRating 8.6 ;
+    :releasedIn 2019 ;
+    :hasGenre :genre_Drama, :genre_Thriller ;
+    :hasActor :actor_Song_Kang-ho, :actor_Lee_Sun-kyun, :actor_Cho_Yeo-jeong ;
+    :directedBy :director_Bong_Joon-ho ;
+    :hasLanguage :lang_Korean .
+
+:m_avatar a :Movie ;
+    rdfs:label "Avatar" ;
+    :hasRating 7.8 ;
+    :releasedIn 2009 ;
+    :hasGenre :genre_Action, :genre_Sci-Fi ;
+    :hasActor :actor_Sam_Worthington, :actor_Zoe_Saldana, :actor_Sigourney_Weaver ;
+    :directedBy :director_James_Cameron ;
+    :hasLanguage :lang_English .
+
+:m_titanic a :Movie ;
+    rdfs:label "Titanic" ;
+    :hasRating 7.9 ;
+    :releasedIn 1997 ;
+    :hasGenre :genre_Drama, :genre_Romance ;
+    :hasActor :actor_Leonardo_DiCaprio, :actor_Kate_Winslet, :actor_Billy_Zane ;
+    :directedBy :director_James_Cameron ;
+    :hasLanguage :lang_English .
+
+:m_lord_rings1 a :Movie ;
+    rdfs:label "The Lord of the Rings: The Fellowship of the Ring" ;
+    :hasRating 8.8 ;
+    :releasedIn 2001 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Fantasy ;
+    :hasActor :actor_Elijah_Wood, :actor_Ian_McKellen, :actor_Orlando_Bloom ;
+    :directedBy :director_Peter_Jackson ;
+    :hasLanguage :lang_English .
+
+:m_lord_rings2 a :Movie ;
+    rdfs:label "The Lord of the Rings: The Two Towers" ;
+    :hasRating 8.7 ;
+    :releasedIn 2002 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Fantasy ;
+    :hasActor :actor_Elijah_Wood, :actor_Ian_McKellen, :actor_Viggo_Mortensen ;
+    :directedBy :director_Peter_Jackson ;
+    :hasLanguage :lang_English .
+
+:m_lord_rings3 a :Movie ;
+    rdfs:label "The Lord of the Rings: The Return of the King" ;
+    :hasRating 8.9 ;
+    :releasedIn 2003 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Fantasy ;
+    :hasActor :actor_Elijah_Wood, :actor_Ian_McKellen, :actor_Viggo_Mortensen ;
+    :directedBy :director_Peter_Jackson ;
+    :hasLanguage :lang_English .
+
+:m_inglourious a :Movie ;
+    rdfs:label "Inglourious Basterds" ;
+    :hasRating 8.3 ;
+    :releasedIn 2009 ;
+    :hasGenre :genre_Action, :genre_Drama, :genre_War ;
+    :hasActor :actor_Brad_Pitt, :actor_Christoph_Waltz, :actor_Michael_Fassbender ;
+    :directedBy :director_Quentin_Tarantino ;
+    :hasLanguage :lang_English, :lang_German, :lang_French .
+
+:m_forrest a :Movie ;
+    rdfs:label "Forrest Gump" ;
+    :hasRating 8.8 ;
+    :releasedIn 1994 ;
+    :hasGenre :genre_Drama, :genre_Romance ;
+    :hasActor :actor_Tom_Hanks, :actor_Robin_Wright, :actor_Gary_Sinise ;
+    :directedBy :director_Robert_Zemeckis ;
+    :hasLanguage :lang_English .
+
+:m_saving a :Movie ;
+    rdfs:label "Saving Private Ryan" ;
+    :hasRating 8.6 ;
+    :releasedIn 1998 ;
+    :hasGenre :genre_Drama, :genre_War ;
+    :hasActor :actor_Tom_Hanks, :actor_Matt_Damon, :actor_Tom_Sizemore ;
+    :directedBy :director_Steven_Spielberg ;
+    :hasLanguage :lang_English, :lang_French, :lang_German .
+
+:m_goodfellas a :Movie ;
+    rdfs:label "Goodfellas" ;
+    :hasRating 8.7 ;
+    :releasedIn 1990 ;
+    :hasGenre :genre_Crime, :genre_Drama ;
+    :hasActor :actor_Robert_De_Niro, :actor_Ray_Liotta, :actor_Joe_Pesci ;
+    :directedBy :director_Martin_Scorsese ;
+    :hasLanguage :lang_English .
+
+:m_casino a :Movie ;
+    rdfs:label "Casino" ;
+    :hasRating 8.2 ;
+    :releasedIn 1995 ;
+    :hasGenre :genre_Crime, :genre_Drama ;
+    :hasActor :actor_Robert_De_Niro, :actor_Sharon_Stone, :actor_Joe_Pesci ;
+    :directedBy :director_Martin_Scorsese ;
+    :hasLanguage :lang_English .
+
+:m_seven a :Movie ;
+    rdfs:label "Se7en" ;
+    :hasRating 8.6 ;
+    :releasedIn 1995 ;
+    :hasGenre :genre_Crime, :genre_Drama, :genre_Mystery ;
+    :hasActor :actor_Brad_Pitt, :actor_Morgan_Freeman, :actor_Kevin_Spacey ;
+    :directedBy :director_David_Fincher ;
+    :hasLanguage :lang_English .
+
+:m_gone_girl a :Movie ;
+    rdfs:label "Gone Girl" ;
+    :hasRating 8.1 ;
+    :releasedIn 2014 ;
+    :hasGenre :genre_Drama, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Ben_Affleck, :actor_Rosamund_Pike, :actor_Neil_Patrick_Harris ;
+    :directedBy :director_David_Fincher ;
+    :hasLanguage :lang_English .
+
+:m_social a :Movie ;
+    rdfs:label "The Social Network" ;
+    :hasRating 7.7 ;
+    :releasedIn 2010 ;
+    :hasGenre :genre_Drama ;
+    :hasActor :actor_Jesse_Eisenberg, :actor_Andrew_Garfield, :actor_Justin_Timberlake ;
+    :directedBy :director_David_Fincher ;
+    :hasLanguage :lang_English .
+
+:m_terminator a :Movie ;
+    rdfs:label "The Terminator" ;
+    :hasRating 8.1 ;
+    :releasedIn 1984 ;
+    :hasGenre :genre_Action, :genre_Sci-Fi ;
+    :hasActor :actor_Arnold_Schwarzenegger, :actor_Linda_Hamilton, :actor_Michael_Biehn ;
+    :directedBy :director_James_Cameron ;
+    :hasLanguage :lang_English .
+
+:m_terminator2 a :Movie ;
+    rdfs:label "Terminator 2: Judgment Day" ;
+    :hasRating 8.6 ;
+    :releasedIn 1991 ;
+    :hasGenre :genre_Action, :genre_Sci-Fi ;
+    :hasActor :actor_Arnold_Schwarzenegger, :actor_Linda_Hamilton, :actor_Edward_Furlong ;
+    :directedBy :director_James_Cameron ;
+    :hasLanguage :lang_English .
+
+:m_aliens a :Movie ;
+    rdfs:label "Aliens" ;
+    :hasRating 8.4 ;
+    :releasedIn 1986 ;
+    :hasGenre :genre_Action, :genre_Sci-Fi ;
+    :hasActor :actor_Sigourney_Weaver, :actor_Michael_Biehn, :actor_Paul_Reiser ;
+    :directedBy :director_James_Cameron ;
+    :hasLanguage :lang_English .
+
+:m_jurassic a :Movie ;
+    rdfs:label "Jurassic Park" ;
+    :hasRating 8.2 ;
+    :releasedIn 1993 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Sci-Fi ;
+    :hasActor :actor_Sam_Neill, :actor_Laura_Dern, :actor_Jeff_Goldblum ;
+    :directedBy :director_Steven_Spielberg ;
+    :hasLanguage :lang_English .
+
+:m_raiders a :Movie ;
+    rdfs:label "Raiders of the Lost Ark" ;
+    :hasRating 8.4 ;
+    :releasedIn 1981 ;
+    :hasGenre :genre_Action, :genre_Adventure ;
+    :hasActor :actor_Harrison_Ford, :actor_Karen_Allen, :actor_Paul_Freeman ;
+    :directedBy :director_Steven_Spielberg ;
+    :hasLanguage :lang_English .
+
+:m_et a :Movie ;
+    rdfs:label "E.T. the Extra-Terrestrial" ;
+    :hasRating 7.9 ;
+    :releasedIn 1982 ;
+    :hasGenre :genre_Family, :genre_Sci-Fi ;
+    :hasActor :actor_Henry_Thomas, :actor_Dee_Wallace, :actor_Peter_Coyote ;
+    :directedBy :director_Steven_Spielberg ;
+    :hasLanguage :lang_English .
+
+:m_memento a :Movie ;
+    rdfs:label "Memento" ;
+    :hasRating 8.4 ;
+    :releasedIn 2000 ;
+    :hasGenre :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Guy_Pearce, :actor_Carrie-Anne_Moss, :actor_Joe_Pantoliano ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+:m_insomnia a :Movie ;
+    rdfs:label "Insomnia" ;
+    :hasRating 7.2 ;
+    :releasedIn 2002 ;
+    :hasGenre :genre_Crime, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Al_Pacino, :actor_Robin_Williams, :actor_Hilary_Swank ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+:m_kill_bill1 a :Movie ;
+    rdfs:label "Kill Bill: Vol. 1" ;
+    :hasRating 8.2 ;
+    :releasedIn 2003 ;
+    :hasGenre :genre_Action, :genre_Crime, :genre_Thriller ;
+    :hasActor :actor_Uma_Thurman, :actor_David_Carradine, :actor_Daryl_Hannah ;
+    :directedBy :director_Quentin_Tarantino ;
+    :hasLanguage :lang_English, :lang_Japanese .
+
+:m_kill_bill2 a :Movie ;
+    rdfs:label "Kill Bill: Vol. 2" ;
+    :hasRating 8.0 ;
+    :releasedIn 2004 ;
+    :hasGenre :genre_Action, :genre_Crime, :genre_Thriller ;
+    :hasActor :actor_Uma_Thurman, :actor_David_Carradine, :actor_Michael_Madsen ;
+    :directedBy :director_Quentin_Tarantino ;
+    :hasLanguage :lang_English, :lang_Chinese .
+
+:m_whiplash a :Movie ;
+    rdfs:label "Whiplash" ;
+    :hasRating 8.5 ;
+    :releasedIn 2014 ;
+    :hasGenre :genre_Drama, :genre_Music ;
+    :hasActor :actor_Miles_Teller, :actor_J_K_Simmons, :actor_Paul_Reiser ;
+    :directedBy :director_Damien_Chazelle ;
+    :hasLanguage :lang_English .
+
+:m_la_la a :Movie ;
+    rdfs:label "La La Land" ;
+    :hasRating 8.0 ;
+    :releasedIn 2016 ;
+    :hasGenre :genre_Comedy, :genre_Drama, :genre_Musical ;
+    :hasActor :actor_Ryan_Gosling, :actor_Emma_Stone, :actor_John_Legend ;
+    :directedBy :director_Damien_Chazelle ;
+    :hasLanguage :lang_English .
+
+:m_mad_max a :Movie ;
+    rdfs:label "Mad Max: Fury Road" ;
+    :hasRating 8.1 ;
+    :releasedIn 2015 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Sci-Fi ;
+    :hasActor :actor_Tom_Hardy, :actor_Charlize_Theron, :actor_Nicholas_Hoult ;
+    :directedBy :director_George_Miller ;
+    :hasLanguage :lang_English .
+
+:m_ex_machina a :Movie ;
+    rdfs:label "Ex Machina" ;
+    :hasRating 7.7 ;
+    :releasedIn 2014 ;
+    :hasGenre :genre_Drama, :genre_Sci-Fi, :genre_Thriller ;
+    :hasActor :actor_Domhnall_Gleeson, :actor_Alicia_Vikander, :actor_Oscar_Isaac ;
+    :directedBy :director_Alex_Garland ;
+    :hasLanguage :lang_English .
+
+:m_blade_runner a :Movie ;
+    rdfs:label "Blade Runner" ;
+    :hasRating 8.1 ;
+    :releasedIn 1982 ;
+    :hasGenre :genre_Sci-Fi, :genre_Thriller ;
+    :hasActor :actor_Harrison_Ford, :actor_Rutger_Hauer, :actor_Sean_Young ;
+    :directedBy :director_Ridley_Scott ;
+    :hasLanguage :lang_English .
+
+:m_blade_runner2049 a :Movie ;
+    rdfs:label "Blade Runner 2049" ;
+    :hasRating 8.0 ;
+    :releasedIn 2017 ;
+    :hasGenre :genre_Sci-Fi, :genre_Thriller ;
+    :hasActor :actor_Ryan_Gosling, :actor_Harrison_Ford, :actor_Ana_de_Armas ;
+    :directedBy :director_Denis_Villeneuve ;
+    :hasLanguage :lang_English .
+
+:m_arrival a :Movie ;
+    rdfs:label "Arrival" ;
+    :hasRating 7.9 ;
+    :releasedIn 2016 ;
+    :hasGenre :genre_Drama, :genre_Sci-Fi ;
+    :hasActor :actor_Amy_Adams, :actor_Jeremy_Renner, :actor_Forest_Whitaker ;
+    :directedBy :director_Denis_Villeneuve ;
+    :hasLanguage :lang_English .
+
+:m_dune a :Movie ;
+    rdfs:label "Dune" ;
+    :hasRating 8.0 ;
+    :releasedIn 2021 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Sci-Fi ;
+    :hasActor :actor_Timothée_Chalamet, :actor_Rebecca_Ferguson, :actor_Oscar_Isaac ;
+    :directedBy :director_Denis_Villeneuve ;
+    :hasLanguage :lang_English .
+
+:m_birdman a :Movie ;
+    rdfs:label "Birdman" ;
+    :hasRating 7.7 ;
+    :releasedIn 2014 ;
+    :hasGenre :genre_Comedy, :genre_Drama ;
+    :hasActor :actor_Michael_Keaton, :actor_Edward_Norton, :actor_Emma_Stone ;
+    :directedBy :director_Alejandro_González_Iñárritu ;
+    :hasLanguage :lang_English .
+
+:m_revenant a :Movie ;
+    rdfs:label "The Revenant" ;
+    :hasRating 8.0 ;
+    :releasedIn 2015 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Drama ;
+    :hasActor :actor_Leonardo_DiCaprio, :actor_Tom_Hardy, :actor_Domhnall_Gleeson ;
+    :directedBy :director_Alejandro_González_Iñárritu ;
+    :hasLanguage :lang_English, :lang_French .
+
+:m_gravity a :Movie ;
+    rdfs:label "Gravity" ;
+    :hasRating 7.7 ;
+    :releasedIn 2013 ;
+    :hasGenre :genre_Drama, :genre_Sci-Fi, :genre_Thriller ;
+    :hasActor :actor_Sandra_Bullock, :actor_George_Clooney, :actor_Ed_Harris ;
+    :directedBy :director_Alfonso_Cuarón ;
+    :hasLanguage :lang_English .
+
+:m_children a :Movie ;
+    rdfs:label "Children of Men" ;
+    :hasRating 7.9 ;
+    :releasedIn 2006 ;
+    :hasGenre :genre_Drama, :genre_Sci-Fi, :genre_Thriller ;
+    :hasActor :actor_Clive_Owen, :actor_Julianne_Moore, :actor_Michael_Caine ;
+    :directedBy :director_Alfonso_Cuarón ;
+    :hasLanguage :lang_English .
+
+:m_oldboy a :Movie ;
+    rdfs:label "Oldboy" ;
+    :hasRating 8.4 ;
+    :releasedIn 2003 ;
+    :hasGenre :genre_Action, :genre_Drama, :genre_Mystery ;
+    :hasActor :actor_Choi_Min-sik, :actor_Yoo_Ji-tae, :actor_Kang_Hye-jeong ;
+    :directedBy :director_Park_Chan-wook ;
+    :hasLanguage :lang_Korean .
+
+:m_snowpiercer a :Movie ;
+    rdfs:label "Snowpiercer" ;
+    :hasRating 7.1 ;
+    :releasedIn 2013 ;
+    :hasGenre :genre_Action, :genre_Drama, :genre_Sci-Fi ;
+    :hasActor :actor_Chris_Evans, :actor_Song_Kang-ho, :actor_Tilda_Swinton ;
+    :directedBy :director_Bong_Joon-ho ;
+    :hasLanguage :lang_English, :lang_Korean .
+
+:m_memories a :Movie ;
+    rdfs:label "Memories of Murder" ;
+    :hasRating 8.1 ;
+    :releasedIn 2003 ;
+    :hasGenre :genre_Crime, :genre_Drama, :genre_Mystery ;
+    :hasActor :actor_Song_Kang-ho, :actor_Kim_Sang-kyung, :actor_Kim_Roe-ha ;
+    :directedBy :director_Bong_Joon-ho ;
+    :hasLanguage :lang_Korean .
+
+:m_captain_america a :Movie ;
+    rdfs:label "Captain America: The Winter Soldier" ;
+    :hasRating 7.8 ;
+    :releasedIn 2014 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Sci-Fi ;
+    :hasActor :actor_Chris_Evans, :actor_Scarlett_Johansson, :actor_Sebastian_Stan ;
+    :directedBy :director_Anthony_Russo ;
+    :hasLanguage :lang_English .
+
+:m_civil_war a :Movie ;
+    rdfs:label "Captain America: Civil War" ;
+    :hasRating 7.8 ;
+    :releasedIn 2016 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Sci-Fi ;
+    :hasActor :actor_Chris_Evans, :actor_Robert_Downey_Jr, :actor_Scarlett_Johansson ;
+    :directedBy :director_Anthony_Russo ;
+    :hasLanguage :lang_English .
+
+:m_infinity_war a :Movie ;
+    rdfs:label "Avengers: Infinity War" ;
+    :hasRating 8.4 ;
+    :releasedIn 2018 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Sci-Fi ;
+    :hasActor :actor_Robert_Downey_Jr, :actor_Chris_Evans, :actor_Mark_Ruffalo ;
+    :directedBy :director_Anthony_Russo ;
+    :hasLanguage :lang_English .
+
+:m_doctor_strange a :Movie ;
+    rdfs:label "Doctor Strange" ;
+    :hasRating 7.5 ;
+    :releasedIn 2016 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Fantasy ;
+    :hasActor :actor_Benedict_Cumberbatch, :actor_Chiwetel_Ejiofor, :actor_Rachel_McAdams ;
+    :directedBy :director_Scott_Derrickson ;
+    :hasLanguage :lang_English .
+
+:m_black_panther a :Movie ;
+    rdfs:label "Black Panther" ;
+    :hasRating 7.3 ;
+    :releasedIn 2018 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Sci-Fi ;
+    :hasActor :actor_Chadwick_Boseman, :actor_Michael_B_Jordan, :actor_Lupita_Nyongo ;
+    :directedBy :director_Ryan_Coogler ;
+    :hasLanguage :lang_English .
+
+:m_get_out a :Movie ;
+    rdfs:label "Get Out" ;
+    :hasRating 7.7 ;
+    :releasedIn 2017 ;
+    :hasGenre :genre_Horror, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Daniel_Kaluuya, :actor_Allison_Williams, :actor_Catherine_Keener ;
+    :directedBy :director_Jordan_Peele ;
+    :hasLanguage :lang_English .
+
+:m_us a :Movie ;
+    rdfs:label "Us" ;
+    :hasRating 6.8 ;
+    :releasedIn 2019 ;
+    :hasGenre :genre_Horror, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Lupita_Nyongo, :actor_Winston_Duke, :actor_Elisabeth_Moss ;
+    :directedBy :director_Jordan_Peele ;
+    :hasLanguage :lang_English .
+
+:m_nope a :Movie ;
+    rdfs:label "Nope" ;
+    :hasRating 7.2 ;
+    :releasedIn 2022 ;
+    :hasGenre :genre_Horror, :genre_Mystery, :genre_Sci-Fi ;
+    :hasActor :actor_Daniel_Kaluuya, :actor_Keke_Palmer, :actor_Steven_Yeun ;
+    :directedBy :director_Jordan_Peele ;
+    :hasLanguage :lang_English .
+
+:m_hereditary a :Movie ;
+    rdfs:label "Hereditary" ;
+    :hasRating 7.3 ;
+    :releasedIn 2018 ;
+    :hasGenre :genre_Horror, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Toni_Collette, :actor_Alex_Wolff, :actor_Milly_Shapiro ;
+    :directedBy :director_Ari_Aster ;
+    :hasLanguage :lang_English .
+
+:m_midsommar a :Movie ;
+    rdfs:label "Midsommar" ;
+    :hasRating 7.1 ;
+    :releasedIn 2019 ;
+    :hasGenre :genre_Drama, :genre_Horror, :genre_Mystery ;
+    :hasActor :actor_Florence_Pugh, :actor_Jack_Reynor, :actor_Will_Poulter ;
+    :directedBy :director_Ari_Aster ;
+    :hasLanguage :lang_English, :lang_Swedish .
+
+:m_shape_water a :Movie ;
+    rdfs:label "The Shape of Water" ;
+    :hasRating 7.3 ;
+    :releasedIn 2017 ;
+    :hasGenre :genre_Drama, :genre_Fantasy, :genre_Romance ;
+    :hasActor :actor_Sally_Hawkins, :actor_Michael_Shannon, :actor_Richard_Jenkins ;
+    :directedBy :director_Guillermo_del_Toro ;
+    :hasLanguage :lang_English, :lang_American_Sign_Language .
+
+:m_pans_labyrinth a :Movie ;
+    rdfs:label "Pan's Labyrinth" ;
+    :hasRating 8.2 ;
+    :releasedIn 2006 ;
+    :hasGenre :genre_Drama, :genre_Fantasy, :genre_War ;
+    :hasActor :actor_Ivana_Baquero, :actor_Doug_Jones, :actor_Sergi_López ;
+    :directedBy :director_Guillermo_del_Toro ;
+    :hasLanguage :lang_Spanish .
+
+:m_1917 a :Movie ;
+    rdfs:label "1917" ;
+    :hasRating 8.2 ;
+    :releasedIn 2019 ;
+    :hasGenre :genre_Drama, :genre_War ;
+    :hasActor :actor_George_MacKay, :actor_Dean-Charles_Chapman, :actor_Mark_Strong ;
+    :directedBy :director_Sam_Mendes ;
+    :hasLanguage :lang_English, :lang_French, :lang_German .
+
+:m_skyfall a :Movie ;
+    rdfs:label "Skyfall" ;
+    :hasRating 7.7 ;
+    :releasedIn 2012 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Thriller ;
+    :hasActor :actor_Daniel_Craig, :actor_Judi_Dench, :actor_Javier_Bardem ;
+    :directedBy :director_Sam_Mendes ;
+    :hasLanguage :lang_English .
+
+:m_spectre a :Movie ;
+    rdfs:label "Spectre" ;
+    :hasRating 6.8 ;
+    :releasedIn 2015 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Thriller ;
+    :hasActor :actor_Daniel_Craig, :actor_Christoph_Waltz, :actor_Ralph_Fiennes ;
+    :directedBy :director_Sam_Mendes ;
+    :hasLanguage :lang_English .
+
+:m_american_beauty a :Movie ;
+    rdfs:label "American Beauty" ;
+    :hasRating 8.3 ;
+    :releasedIn 1999 ;
+    :hasGenre :genre_Drama ;
+    :hasActor :actor_Kevin_Spacey, :actor_Annette_Bening, :actor_Thora_Birch ;
+    :directedBy :director_Sam_Mendes ;
+    :hasLanguage :lang_English .
+
+:m_clockwork a :Movie ;
+    rdfs:label "A Clockwork Orange" ;
+    :hasRating 8.3 ;
+    :releasedIn 1971 ;
+    :hasGenre :genre_Crime, :genre_Drama, :genre_Sci-Fi ;
+    :hasActor :actor_Malcolm_McDowell, :actor_Patrick_Magee, :actor_Michael_Bates ;
+    :directedBy :director_Stanley_Kubrick ;
+    :hasLanguage :lang_English .
+
+:m_shining a :Movie ;
+    rdfs:label "The Shining" ;
+    :hasRating 8.4 ;
+    :releasedIn 1980 ;
+    :hasGenre :genre_Drama, :genre_Horror ;
+    :hasActor :actor_Jack_Nicholson, :actor_Shelley_Duvall, :actor_Danny_Lloyd ;
+    :directedBy :director_Stanley_Kubrick ;
+    :hasLanguage :lang_English .
+
+:m_full_metal a :Movie ;
+    rdfs:label "Full Metal Jacket" ;
+    :hasRating 8.3 ;
+    :releasedIn 1987 ;
+    :hasGenre :genre_Drama, :genre_War ;
+    :hasActor :actor_Matthew_Modine, :actor_R_Lee_Ermey, :actor_Vincent_DOnofrio ;
+    :directedBy :director_Stanley_Kubrick ;
+    :hasLanguage :lang_English .
+
+:m_space_odyssey a :Movie ;
+    rdfs:label "2001: A Space Odyssey" ;
+    :hasRating 8.3 ;
+    :releasedIn 1968 ;
+    :hasGenre :genre_Mystery, :genre_Sci-Fi ;
+    :hasActor :actor_Keir_Dullea, :actor_Gary_Lockwood, :actor_William_Sylvester ;
+    :directedBy :director_Stanley_Kubrick ;
+    :hasLanguage :lang_English .
+
+:m_dr_strangelove a :Movie ;
+    rdfs:label "Dr. Strangelove" ;
+    :hasRating 8.4 ;
+    :releasedIn 1964 ;
+    :hasGenre :genre_Comedy, :genre_War ;
+    :hasActor :actor_Peter_Sellers, :actor_George_C_Scott, :actor_Sterling_Hayden ;
+    :directedBy :director_Stanley_Kubrick ;
+    :hasLanguage :lang_English .
+
+:m_paths_glory a :Movie ;
+    rdfs:label "Paths of Glory" ;
+    :hasRating 8.4 ;
+    :releasedIn 1957 ;
+    :hasGenre :genre_Drama, :genre_War ;
+    :hasActor :actor_Kirk_Douglas, :actor_Ralph_Meeker, :actor_Adolphe_Menjou ;
+    :directedBy :director_Stanley_Kubrick ;
+    :hasLanguage :lang_English, :lang_German .
+
+:m_apocalypse a :Movie ;
+    rdfs:label "Apocalypse Now" ;
+    :hasRating 8.4 ;
+    :releasedIn 1979 ;
+    :hasGenre :genre_Drama, :genre_War ;
+    :hasActor :actor_Marlon_Brando, :actor_Martin_Sheen, :actor_Robert_Duvall ;
+    :directedBy :director_Francis_Ford_Coppola ;
+    :hasLanguage :lang_English, :lang_French, :lang_Vietnamese .
+
+:m_convoy a :Movie ;
+    rdfs:label "The Conversation" ;
+    :hasRating 7.8 ;
+    :releasedIn 1974 ;
+    :hasGenre :genre_Drama, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Gene_Hackman, :actor_John_Cazale, :actor_Allen_Garfield ;
+    :directedBy :director_Francis_Ford_Coppola ;
+    :hasLanguage :lang_English .
+
+:m_taxi_driver a :Movie ;
+    rdfs:label "Taxi Driver" ;
+    :hasRating 8.3 ;
+    :releasedIn 1976 ;
+    :hasGenre :genre_Crime, :genre_Drama ;
+    :hasActor :actor_Robert_De_Niro, :actor_Jodie_Foster, :actor_Cybill_Shepherd ;
+    :directedBy :director_Martin_Scorsese ;
+    :hasLanguage :lang_English .
+
+:m_raging_bull a :Movie ;
+    rdfs:label "Raging Bull" ;
+    :hasRating 8.2 ;
+    :releasedIn 1980 ;
+    :hasGenre :genre_Biography, :genre_Drama, :genre_Sport ;
+    :hasActor :actor_Robert_De_Niro, :actor_Cathy_Moriarty, :actor_Joe_Pesci ;
+    :directedBy :director_Martin_Scorsese ;
+    :hasLanguage :lang_English .
+
+:m_wolf_street a :Movie ;
+    rdfs:label "The Wolf of Wall Street" ;
+    :hasRating 8.2 ;
+    :releasedIn 2013 ;
+    :hasGenre :genre_Biography, :genre_Comedy, :genre_Crime ;
+    :hasActor :actor_Leonardo_DiCaprio, :actor_Jonah_Hill, :actor_Margot_Robbie ;
+    :directedBy :director_Martin_Scorsese ;
+    :hasLanguage :lang_English .
+
+:m_usual_suspects a :Movie ;
+    rdfs:label "The Usual Suspects" ;
+    :hasRating 8.5 ;
+    :releasedIn 1995 ;
+    :hasGenre :genre_Crime, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Kevin_Spacey, :actor_Gabriel_Byrne, :actor_Chazz_Palminteri ;
+    :directedBy :director_Bryan_Singer ;
+    :hasLanguage :lang_English .
+
+:m_leon a :Movie ;
+    rdfs:label "Léon: The Professional" ;
+    :hasRating 8.5 ;
+    :releasedIn 1994 ;
+    :hasGenre :genre_Action, :genre_Crime, :genre_Drama ;
+    :hasActor :actor_Jean_Reno, :actor_Natalie_Portman, :actor_Gary_Oldman ;
+    :directedBy :director_Luc_Besson ;
+    :hasLanguage :lang_English, :lang_French .
+
+:m_fifth_element a :Movie ;
+    rdfs:label "The Fifth Element" ;
+    :hasRating 7.7 ;
+    :releasedIn 1997 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Sci-Fi ;
+    :hasActor :actor_Bruce_Willis, :actor_Gary_Oldman, :actor_Ian_Holm ;
+    :directedBy :director_Luc_Besson ;
+    :hasLanguage :lang_English, :lang_French .
+
+:m_taken a :Movie ;
+    rdfs:label "Taken" ;
+    :hasRating 7.8 ;
+    :releasedIn 2008 ;
+    :hasGenre :genre_Action, :genre_Thriller ;
+    :hasActor :actor_Liam_Neeson, :actor_Maggie_Grace, :actor_Famke_Janssen ;
+    :directedBy :director_Pierre_Morel ;
+    :hasLanguage :lang_English, :lang_French .
+
+:m_lock_stock a :Movie ;
+    rdfs:label "Lock, Stock and Two Smoking Barrels" ;
+    :hasRating 8.2 ;
+    :releasedIn 1998 ;
+    :hasGenre :genre_Comedy, :genre_Crime ;
+    :hasActor :actor_Jason_Statham, :actor_Nick_Moran, :actor_Dexter_Fletcher ;
+    :directedBy :director_Guy_Ritchie ;
+    :hasLanguage :lang_English .
+
+:m_snatch a :Movie ;
+    rdfs:label "Snatch" ;
+    :hasRating 8.2 ;
+    :releasedIn 2000 ;
+    :hasGenre :genre_Comedy, :genre_Crime ;
+    :hasActor :actor_Jason_Statham, :actor_Brad_Pitt, :actor_Benicio_del_Toro ;
+    :directedBy :director_Guy_Ritchie ;
+    :hasLanguage :lang_English .
+
+:m_sherlock a :Movie ;
+    rdfs:label "Sherlock Holmes" ;
+    :hasRating 7.6 ;
+    :releasedIn 2009 ;
+    :hasGenre :genre_Action, :genre_Adventure, :genre_Mystery ;
+    :hasActor :actor_Robert_Downey_Jr, :actor_Jude_Law, :actor_Rachel_McAdams ;
+    :directedBy :director_Guy_Ritchie ;
+    :hasLanguage :lang_English .
+
+:m_good_will a :Movie ;
+    rdfs:label "Good Will Hunting" ;
+    :hasRating 8.3 ;
+    :releasedIn 1997 ;
+    :hasGenre :genre_Drama, :genre_Romance ;
+    :hasActor :actor_Matt_Damon, :actor_Robin_Williams, :actor_Ben_Affleck ;
+    :directedBy :director_Gus_Van_Sant ;
+    :hasLanguage :lang_English .
+
+:m_american_history a :Movie ;
+    rdfs:label "American History X" ;
+    :hasRating 8.5 ;
+    :releasedIn 1998 ;
+    :hasGenre :genre_Drama ;
+    :hasActor :actor_Edward_Norton, :actor_Edward_Furlong, :actor_Beverly_DAngelo ;
+    :directedBy :director_Tony_Kaye ;
+    :hasLanguage :lang_English .
+
+:m_bourne a :Movie ;
+    rdfs:label "The Bourne Identity" ;
+    :hasRating 7.9 ;
+    :releasedIn 2002 ;
+    :hasGenre :genre_Action, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Matt_Damon, :actor_Franka_Potente, :actor_Chris_Cooper ;
+    :directedBy :director_Doug_Liman ;
+    :hasLanguage :lang_English, :lang_French, :lang_German .
+
+:m_bourne_supremacy a :Movie ;
+    rdfs:label "The Bourne Supremacy" ;
+    :hasRating 7.8 ;
+    :releasedIn 2004 ;
+    :hasGenre :genre_Action, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Matt_Damon, :actor_Joan_Allen, :actor_Brian_Cox ;
+    :directedBy :director_Paul_Greengrass ;
+    :hasLanguage :lang_English, :lang_Russian, :lang_German .
+
+:m_bourne_ultimatum a :Movie ;
+    rdfs:label "The Bourne Ultimatum" ;
+    :hasRating 8.0 ;
+    :releasedIn 2007 ;
+    :hasGenre :genre_Action, :genre_Mystery, :genre_Thriller ;
+    :hasActor :actor_Matt_Damon, :actor_Joan_Allen, :actor_Julia_Stiles ;
+    :directedBy :director_Paul_Greengrass ;
+    :hasLanguage :lang_English, :lang_Russian, :lang_Spanish .
+
+:m_ocean_eleven a :Movie ;
+    rdfs:label "Ocean's Eleven" ;
+    :hasRating 7.7 ;
+    :releasedIn 2001 ;
+    :hasGenre :genre_Crime, :genre_Thriller ;
+    :hasActor :actor_George_Clooney, :actor_Brad_Pitt, :actor_Julia_Roberts ;
+    :directedBy :director_Steven_Soderbergh ;
+    :hasLanguage :lang_English .
+
+:m_ocean_twelve a :Movie ;
+    rdfs:label "Ocean's Twelve" ;
+    :hasRating 6.5 ;
+    :releasedIn 2004 ;
+    :hasGenre :genre_Crime, :genre_Thriller ;
+    :hasActor :actor_George_Clooney, :actor_Brad_Pitt, :actor_Catherine_Zeta-Jones ;
+    :directedBy :director_Steven_Soderbergh ;
+    :hasLanguage :lang_English, :lang_French, :lang_Italian .
+
+:m_ocean_thirteen a :Movie ;
+    rdfs:label "Ocean's Thirteen" ;
+    :hasRating 6.9 ;
+    :releasedIn 2007 ;
+    :hasGenre :genre_Crime, :genre_Thriller ;
+    :hasActor :actor_George_Clooney, :actor_Brad_Pitt, :actor_Matt_Damon ;
+    :directedBy :director_Steven_Soderbergh ;
+    :hasLanguage :lang_English, :lang_Spanish .
+
+:m_traffic a :Movie ;
+    rdfs:label "Traffic" ;
+    :hasRating 7.6 ;
+    :releasedIn 2000 ;
+    :hasGenre :genre_Crime, :genre_Drama, :genre_Thriller ;
+    :hasActor :actor_Michael_Douglas, :actor_Benicio_del_Toro, :actor_Catherine_Zeta-Jones ;
+    :directedBy :director_Steven_Soderbergh ;
+    :hasLanguage :lang_English, :lang_Spanish .
+
+:m_erin_brockovich a :Movie ;
+    rdfs:label "Erin Brockovich" ;
+    :hasRating 7.3 ;
+    :releasedIn 2000 ;
+    :hasGenre :genre_Biography, :genre_Drama ;
+    :hasActor :actor_Julia_Roberts, :actor_Albert_Finney, :actor_Aaron_Eckhart ;
+    :directedBy :director_Steven_Soderbergh ;
+    :hasLanguage :lang_English .
+
+:m_sicario a :Movie ;
+    rdfs:label "Sicario" ;
+    :hasRating 7.6 ;
+    :releasedIn 2015 ;
+    :hasGenre :genre_Action, :genre_Crime, :genre_Drama ;
+    :hasActor :actor_Emily_Blunt, :actor_Benicio_del_Toro, :actor_Josh_Brolin ;
+    :directedBy :director_Denis_Villeneuve ;
+    :hasLanguage :lang_English, :lang_Spanish .
+
+:m_prisoners a :Movie ;
+    rdfs:label "Prisoners" ;
+    :hasRating 8.1 ;
+    :releasedIn 2013 ;
+    :hasGenre :genre_Crime, :genre_Drama, :genre_Mystery ;
+    :hasActor :actor_Hugh_Jackman, :actor_Jake_Gyllenhaal, :actor_Viola_Davis ;
+    :directedBy :director_Denis_Villeneuve ;
+    :hasLanguage :lang_English .
+
+:m_incendies a :Movie ;
+    rdfs:label "Incendies" ;
+    :hasRating 8.3 ;
+    :releasedIn 2010 ;
+    :hasGenre :genre_Drama, :genre_Mystery, :genre_War ;
+    :hasActor :actor_Lubna_Azabal, :actor_Mélissa_Désormeaux-Poulin, :actor_Maxim_Gaudette ;
+    :directedBy :director_Denis_Villeneuve ;
+    :hasLanguage :lang_French, :lang_Arabic .
+
+:m_big_short a :Movie ;
+    rdfs:label "The Big Short" ;
+    :hasRating 7.8 ;
+    :releasedIn 2015 ;
+    :hasGenre :genre_Biography, :genre_Comedy, :genre_Drama ;
+    :hasActor :actor_Christian_Bale, :actor_Steve_Carell, :actor_Ryan_Gosling ;
+    :directedBy :director_Adam_McKay ;
+    :hasLanguage :lang_English .
+
+:m_vice a :Movie ;
+    rdfs:label "Vice" ;
+    :hasRating 7.2 ;
+    :releasedIn 2018 ;
+    :hasGenre :genre_Biography, :genre_Comedy, :genre_Drama ;
+    :hasActor :actor_Christian_Bale, :actor_Amy_Adams, :actor_Steve_Carell ;
+    :directedBy :director_Adam_McKay ;
+    :hasLanguage :lang_English .
+
+:m_dont_look_up a :Movie ;
+    rdfs:label "Don't Look Up" ;
+    :hasRating 7.2 ;
+    :releasedIn 2021 ;
+    :hasGenre :genre_Comedy, :genre_Drama, :genre_Sci-Fi ;
+    :hasActor :actor_Leonardo_DiCaprio, :actor_Jennifer_Lawrence, :actor_Meryl_Streep ;
+    :directedBy :director_Adam_McKay ;
+    :hasLanguage :lang_English .
+
+:m_dunkirk a :Movie ;
+    rdfs:label "Dunkirk" ;
+    :hasRating 7.8 ;
+    :releasedIn 2017 ;
+    :hasGenre :genre_Action, :genre_Drama, :genre_War ;
+    :hasActor :actor_Fionn_Whitehead, :actor_Tom_Hardy, :actor_Cillian_Murphy ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English, :lang_French, :lang_German .
+
+:m_tenet a :Movie ;
+    rdfs:label "Tenet" ;
+    :hasRating 7.4 ;
+    :releasedIn 2020 ;
+    :hasGenre :genre_Action, :genre_Sci-Fi, :genre_Thriller ;
+    :hasActor :actor_John_David_Washington, :actor_Robert_Pattinson, :actor_Elizabeth_Debicki ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+:m_oppenheimer a :Movie ;
+    rdfs:label "Oppenheimer" ;
+    :hasRating 8.3 ;
+    :releasedIn 2023 ;
+    :hasGenre :genre_Biography, :genre_Drama, :genre_History ;
+    :hasActor :actor_Cillian_Murphy, :actor_Emily_Blunt, :actor_Matt_Damon ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+:m_batman_begins a :Movie ;
+    rdfs:label "Batman Begins" ;
+    :hasRating 8.2 ;
+    :releasedIn 2005 ;
+    :hasGenre :genre_Action, :genre_Crime, :genre_Drama ;
+    :hasActor :actor_Christian_Bale, :actor_Michael_Caine, :actor_Liam_Neeson ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+:m_dark_knight_rises a :Movie ;
+    rdfs:label "The Dark Knight Rises" ;
+    :hasRating 8.4 ;
+    :releasedIn 2012 ;
+    :hasGenre :genre_Action, :genre_Thriller ;
+    :hasActor :actor_Christian_Bale, :actor_Tom_Hardy, :actor_Anne_Hathaway ;
+    :directedBy :director_Christopher_Nolan ;
+    :hasLanguage :lang_English .
+
+# Actors
+:actor_Leonardo_DiCaprio a :Actor ; rdfs:label "Leonardo DiCaprio" .
+:actor_Joseph_Gordon-Levitt a :Actor ; rdfs:label "Joseph Gordon-Levitt" .
+:actor_Ellen_Page a :Actor ; rdfs:label "Ellen Page" .
+:actor_Matthew_McConaughey a :Actor ; rdfs:label "Matthew McConaughey" .
+:actor_Anne_Hathaway a :Actor ; rdfs:label "Anne Hathaway" .
+:actor_Jessica_Chastain a :Actor ; rdfs:label "Jessica Chastain" .
+:actor_Christian_Bale a :Actor ; rdfs:label "Christian Bale" .
+:actor_Heath_Ledger a :Actor ; rdfs:label "Heath Ledger" .
+:actor_Aaron_Eckhart a :Actor ; rdfs:label "Aaron Eckhart" .
+:actor_Hugh_Jackman a :Actor ; rdfs:label "Hugh Jackman" .
+:actor_Scarlett_Johansson a :Actor ; rdfs:label "Scarlett Johansson" .
+:actor_Matt_Damon a :Actor ; rdfs:label "Matt Damon" .
+:actor_Jack_Nicholson a :Actor ; rdfs:label "Jack Nicholson" .
+:actor_Mark_Ruffalo a :Actor ; rdfs:label "Mark Ruffalo" .
+:actor_John_Travolta a :Actor ; rdfs:label "John Travolta" .
+:actor_Samuel_L_Jackson a :Actor ; rdfs:label "Samuel L. Jackson" .
+:actor_Uma_Thurman a :Actor ; rdfs:label "Uma Thurman" .
+:actor_Jamie_Foxx a :Actor ; rdfs:label "Jamie Foxx" .
+:actor_Christoph_Waltz a :Actor ; rdfs:label "Christoph Waltz" .
+:actor_Robert_Downey_Jr a :Actor ; rdfs:label "Robert Downey Jr." .
+:actor_Chris_Evans a :Actor ; rdfs:label "Chris Evans" .
+:actor_Gwyneth_Paltrow a :Actor ; rdfs:label "Gwyneth Paltrow" .
+:actor_Jeff_Bridges a :Actor ; rdfs:label "Jeff Bridges" .
+:actor_Keanu_Reeves a :Actor ; rdfs:label "Keanu Reeves" .
+:actor_Laurence_Fishburne a :Actor ; rdfs:label "Laurence Fishburne" .
+:actor_Carrie-Anne_Moss a :Actor ; rdfs:label "Carrie-Anne Moss" .
+:actor_Russell_Crowe a :Actor ; rdfs:label "Russell Crowe" .
+:actor_Joaquin_Phoenix a :Actor ; rdfs:label "Joaquin Phoenix" .
+:actor_Connie_Nielsen a :Actor ; rdfs:label "Connie Nielsen" .
+:actor_Brad_Pitt a :Actor ; rdfs:label "Brad Pitt" .
+:actor_Edward_Norton a :Actor ; rdfs:label "Edward Norton" .
+:actor_Helena_Bonham_Carter a :Actor ; rdfs:label "Helena Bonham Carter" .
+:actor_Marlon_Brando a :Actor ; rdfs:label "Marlon Brando" .
+:actor_Al_Pacino a :Actor ; rdfs:label "Al Pacino" .
+:actor_James_Caan a :Actor ; rdfs:label "James Caan" .
+:actor_Robert_De_Niro a :Actor ; rdfs:label "Robert De Niro" .
+:actor_Robert_Duvall a :Actor ; rdfs:label "Robert Duvall" .
+:actor_Tim_Robbins a :Actor ; rdfs:label "Tim Robbins" .
+:actor_Morgan_Freeman a :Actor ; rdfs:label "Morgan Freeman" .
+:actor_Bob_Gunton a :Actor ; rdfs:label "Bob Gunton" .
+:actor_Liam_Neeson a :Actor ; rdfs:label "Liam Neeson" .
+:actor_Ralph_Fiennes a :Actor ; rdfs:label "Ralph Fiennes" .
+:actor_Ben_Kingsley a :Actor ; rdfs:label "Ben Kingsley" .
+:actor_Song_Kang-ho a :Actor ; rdfs:label "Song Kang-ho" .
+:actor_Lee_Sun-kyun a :Actor ; rdfs:label "Lee Sun-kyun" .
+:actor_Cho_Yeo-jeong a :Actor ; rdfs:label "Cho Yeo-jeong" .
+:actor_Sam_Worthington a :Actor ; rdfs:label "Sam Worthington" .
+:actor_Zoe_Saldana a :Actor ; rdfs:label "Zoe Saldana" .
+:actor_Sigourney_Weaver a :Actor ; rdfs:label "Sigourney Weaver" .
+:actor_Kate_Winslet a :Actor ; rdfs:label "Kate Winslet" .
+:actor_Billy_Zane a :Actor ; rdfs:label "Billy Zane" .
+:actor_Elijah_Wood a :Actor ; rdfs:label "Elijah Wood" .
+:actor_Ian_McKellen a :Actor ; rdfs:label "Ian McKellen" .
+:actor_Orlando_Bloom a :Actor ; rdfs:label "Orlando Bloom" .
+:actor_Viggo_Mortensen a :Actor ; rdfs:label "Viggo Mortensen" .
+:actor_Michael_Fassbender a :Actor ; rdfs:label "Michael Fassbender" .
+:actor_Robin_Wright a :Actor ; rdfs:label "Robin Wright" .
+:actor_Gary_Sinise a :Actor ; rdfs:label "Gary Sinise" .
+:actor_Tom_Hanks a :Actor ; rdfs:label "Tom Hanks" .
+:actor_Tom_Sizemore a :Actor ; rdfs:label "Tom Sizemore" .
+:actor_Ray_Liotta a :Actor ; rdfs:label "Ray Liotta" .
+:actor_Joe_Pesci a :Actor ; rdfs:label "Joe Pesci" .
+:actor_Sharon_Stone a :Actor ; rdfs:label "Sharon Stone" .
+:actor_Kevin_Spacey a :Actor ; rdfs:label "Kevin Spacey" .
+:actor_Ben_Affleck a :Actor ; rdfs:label "Ben Affleck" .
+:actor_Rosamund_Pike a :Actor ; rdfs:label "Rosamund Pike" .
+:actor_Neil_Patrick_Harris a :Actor ; rdfs:label "Neil Patrick Harris" .
+:actor_Jesse_Eisenberg a :Actor ; rdfs:label "Jesse Eisenberg" .
+:actor_Andrew_Garfield a :Actor ; rdfs:label "Andrew Garfield" .
+:actor_Justin_Timberlake a :Actor ; rdfs:label "Justin Timberlake" .
+:actor_Arnold_Schwarzenegger a :Actor ; rdfs:label "Arnold Schwarzenegger" .
+:actor_Linda_Hamilton a :Actor ; rdfs:label "Linda Hamilton" .
+:actor_Michael_Biehn a :Actor ; rdfs:label "Michael Biehn" .
+:actor_Edward_Furlong a :Actor ; rdfs:label "Edward Furlong" .
+:actor_Paul_Reiser a :Actor ; rdfs:label "Paul Reiser" .
+:actor_Sam_Neill a :Actor ; rdfs:label "Sam Neill" .
+:actor_Laura_Dern a :Actor ; rdfs:label "Laura Dern" .
+:actor_Jeff_Goldblum a :Actor ; rdfs:label "Jeff Goldblum" .
+:actor_Harrison_Ford a :Actor ; rdfs:label "Harrison Ford" .
+:actor_Karen_Allen a :Actor ; rdfs:label "Karen Allen" .
+:actor_Paul_Freeman a :Actor ; rdfs:label "Paul Freeman" .
+:actor_Henry_Thomas a :Actor ; rdfs:label "Henry Thomas" .
+:actor_Dee_Wallace a :Actor ; rdfs:label "Dee Wallace" .
+:actor_Peter_Coyote a :Actor ; rdfs:label "Peter Coyote" .
+:actor_Guy_Pearce a :Actor ; rdfs:label "Guy Pearce" .
+:actor_Joe_Pantoliano a :Actor ; rdfs:label "Joe Pantoliano" .
+:actor_Robin_Williams a :Actor ; rdfs:label "Robin Williams" .
+:actor_Hilary_Swank a :Actor ; rdfs:label "Hilary Swank" .
+:actor_David_Carradine a :Actor ; rdfs:label "David Carradine" .
+:actor_Daryl_Hannah a :Actor ; rdfs:label "Daryl Hannah" .
+:actor_Michael_Madsen a :Actor ; rdfs:label "Michael Madsen" .
+:actor_Miles_Teller a :Actor ; rdfs:label "Miles Teller" .
+:actor_J_K_Simmons a :Actor ; rdfs:label "J.K. Simmons" .
+:actor_Ryan_Gosling a :Actor ; rdfs:label "Ryan Gosling" .
+:actor_Emma_Stone a :Actor ; rdfs:label "Emma Stone" .
+:actor_John_Legend a :Actor ; rdfs:label "John Legend" .
+:actor_Tom_Hardy a :Actor ; rdfs:label "Tom Hardy" .
+:actor_Charlize_Theron a :Actor ; rdfs:label "Charlize Theron" .
+:actor_Nicholas_Hoult a :Actor ; rdfs:label "Nicholas Hoult" .
+:actor_Domhnall_Gleeson a :Actor ; rdfs:label "Domhnall Gleeson" .
+:actor_Alicia_Vikander a :Actor ; rdfs:label "Alicia Vikander" .
+:actor_Oscar_Isaac a :Actor ; rdfs:label "Oscar Isaac" .
+:actor_Rutger_Hauer a :Actor ; rdfs:label "Rutger Hauer" .
+:actor_Sean_Young a :Actor ; rdfs:label "Sean Young" .
+:actor_Ana_de_Armas a :Actor ; rdfs:label "Ana de Armas" .
+:actor_Amy_Adams a :Actor ; rdfs:label "Amy Adams" .
+:actor_Jeremy_Renner a :Actor ; rdfs:label "Jeremy Renner" .
+:actor_Forest_Whitaker a :Actor ; rdfs:label "Forest Whitaker" .
+:actor_Timothée_Chalamet a :Actor ; rdfs:label "Timothée Chalamet" .
+:actor_Rebecca_Ferguson a :Actor ; rdfs:label "Rebecca Ferguson" .
+:actor_Michael_Keaton a :Actor ; rdfs:label "Michael Keaton" .
+:actor_Sandra_Bullock a :Actor ; rdfs:label "Sandra Bullock" .
+:actor_George_Clooney a :Actor ; rdfs:label "George Clooney" .
+:actor_Ed_Harris a :Actor ; rdfs:label "Ed Harris" .
+:actor_Clive_Owen a :Actor ; rdfs:label "Clive Owen" .
+:actor_Julianne_Moore a :Actor ; rdfs:label "Julianne Moore" .
+:actor_Michael_Caine a :Actor ; rdfs:label "Michael Caine" .
+:actor_Choi_Min-sik a :Actor ; rdfs:label "Choi Min-sik" .
+:actor_Yoo_Ji-tae a :Actor ; rdfs:label "Yoo Ji-tae" .
+:actor_Kang_Hye-jeong a :Actor ; rdfs:label "Kang Hye-jeong" .
+:actor_Tilda_Swinton a :Actor ; rdfs:label "Tilda Swinton" .
+:actor_Kim_Sang-kyung a :Actor ; rdfs:label "Kim Sang-kyung" .
+:actor_Kim_Roe-ha a :Actor ; rdfs:label "Kim Roe-ha" .
+:actor_Sebastian_Stan a :Actor ; rdfs:label "Sebastian Stan" .
+:actor_Daniel_Kaluuya a :Actor ; rdfs:label "Daniel Kaluuya" .
+:actor_Allison_Williams a :Actor ; rdfs:label "Allison Williams" .
+:actor_Catherine_Keener a :Actor ; rdfs:label "Catherine Keener" .
+:actor_Lupita_Nyongo a :Actor ; rdfs:label "Lupita Nyong'o" .
+:actor_Winston_Duke a :Actor ; rdfs:label "Winston Duke" .
+:actor_Elisabeth_Moss a :Actor ; rdfs:label "Elisabeth Moss" .
+:actor_Keke_Palmer a :Actor ; rdfs:label "Keke Palmer" .
+:actor_Steven_Yeun a :Actor ; rdfs:label "Steven Yeun" .
+:actor_Toni_Collette a :Actor ; rdfs:label "Toni Collette" .
+:actor_Alex_Wolff a :Actor ; rdfs:label "Alex Wolff" .
+:actor_Milly_Shapiro a :Actor ; rdfs:label "Milly Shapiro" .
+:actor_Florence_Pugh a :Actor ; rdfs:label "Florence Pugh" .
+:actor_Jack_Reynor a :Actor ; rdfs:label "Jack Reynor" .
+:actor_Will_Poulter a :Actor ; rdfs:label "Will Poulter" .
+:actor_Sally_Hawkins a :Actor ; rdfs:label "Sally Hawkins" .
+:actor_Michael_Shannon a :Actor ; rdfs:label "Michael Shannon" .
+:actor_Richard_Jenkins a :Actor ; rdfs:label "Richard Jenkins" .
+:actor_Ivana_Baquero a :Actor ; rdfs:label "Ivana Baquero" .
+:actor_Doug_Jones a :Actor ; rdfs:label "Doug Jones" .
+:actor_Sergi_López a :Actor ; rdfs:label "Sergi López" .
+:actor_George_MacKay a :Actor ; rdfs:label "George MacKay" .
+:actor_Dean-Charles_Chapman a :Actor ; rdfs:label "Dean-Charles Chapman" .
+:actor_Mark_Strong a :Actor ; rdfs:label "Mark Strong" .
+:actor_Daniel_Craig a :Actor ; rdfs:label "Daniel Craig" .
+:actor_Judi_Dench a :Actor ; rdfs:label "Judi Dench" .
+:actor_Javier_Bardem a :Actor ; rdfs:label "Javier Bardem" .
+:actor_Annette_Bening a :Actor ; rdfs:label "Annette Bening" .
+:actor_Thora_Birch a :Actor ; rdfs:label "Thora Birch" .
+:actor_Malcolm_McDowell a :Actor ; rdfs:label "Malcolm McDowell" .
+:actor_Patrick_Magee a :Actor ; rdfs:label "Patrick Magee" .
+:actor_Michael_Bates a :Actor ; rdfs:label "Michael Bates" .
+:actor_Shelley_Duvall a :Actor ; rdfs:label "Shelley Duvall" .
+:actor_Danny_Lloyd a :Actor ; rdfs:label "Danny Lloyd" .
+:actor_Matthew_Modine a :Actor ; rdfs:label "Matthew Modine" .
+:actor_R_Lee_Ermey a :Actor ; rdfs:label "R. Lee Ermey" .
+:actor_Vincent_DOnofrio a :Actor ; rdfs:label "Vincent D'Onofrio" .
+:actor_Keir_Dullea a :Actor ; rdfs:label "Keir Dullea" .
+:actor_Gary_Lockwood a :Actor ; rdfs:label "Gary Lockwood" .
+:actor_William_Sylvester a :Actor ; rdfs:label "William Sylvester" .
+:actor_Peter_Sellers a :Actor ; rdfs:label "Peter Sellers" .
+:actor_George_C_Scott a :Actor ; rdfs:label "George C. Scott" .
+:actor_Sterling_Hayden a :Actor ; rdfs:label "Sterling Hayden" .
+:actor_Kirk_Douglas a :Actor ; rdfs:label "Kirk Douglas" .
+:actor_Ralph_Meeker a :Actor ; rdfs:label "Ralph Meeker" .
+:actor_Adolphe_Menjou a :Actor ; rdfs:label "Adolphe Menjou" .
+:actor_Martin_Sheen a :Actor ; rdfs:label "Martin Sheen" .
+:actor_Gene_Hackman a :Actor ; rdfs:label "Gene Hackman" .
+:actor_John_Cazale a :Actor ; rdfs:label "John Cazale" .
+:actor_Allen_Garfield a :Actor ; rdfs:label "Allen Garfield" .
+:actor_Jodie_Foster a :Actor ; rdfs:label "Jodie Foster" .
+:actor_Cybill_Shepherd a :Actor ; rdfs:label "Cybill Shepherd" .
+:actor_Cathy_Moriarty a :Actor ; rdfs:label "Cathy Moriarty" .
+:actor_Jonah_Hill a :Actor ; rdfs:label "Jonah Hill" .
+:actor_Margot_Robbie a :Actor ; rdfs:label "Margot Robbie" .
+:actor_Gabriel_Byrne a :Actor ; rdfs:label "Gabriel Byrne" .
+:actor_Chazz_Palminteri a :Actor ; rdfs:label "Chazz Palminteri" .
+:actor_Jean_Reno a :Actor ; rdfs:label "Jean Reno" .
+:actor_Natalie_Portman a :Actor ; rdfs:label "Natalie Portman" .
+:actor_Gary_Oldman a :Actor ; rdfs:label "Gary Oldman" .
+:actor_Bruce_Willis a :Actor ; rdfs:label "Bruce Willis" .
+:actor_Ian_Holm a :Actor ; rdfs:label "Ian Holm" .
+:actor_Maggie_Grace a :Actor ; rdfs:label "Maggie Grace" .
+:actor_Famke_Janssen a :Actor ; rdfs:label "Famke Janssen" .
+:actor_Jason_Statham a :Actor ; rdfs:label "Jason Statham" .
+:actor_Nick_Moran a :Actor ; rdfs:label "Nick Moran" .
+:actor_Dexter_Fletcher a :Actor ; rdfs:label "Dexter Fletcher" .
+:actor_Benicio_del_Toro a :Actor ; rdfs:label "Benicio del Toro" .
+:actor_Jude_Law a :Actor ; rdfs:label "Jude Law" .
+:actor_Rachel_McAdams a :Actor ; rdfs:label "Rachel McAdams" .
+:actor_Beverly_DAngelo a :Actor ; rdfs:label "Beverly D'Angelo" .
+:actor_Franka_Potente a :Actor ; rdfs:label "Franka Potente" .
+:actor_Chris_Cooper a :Actor ; rdfs:label "Chris Cooper" .
+:actor_Joan_Allen a :Actor ; rdfs:label "Joan Allen" .
+:actor_Brian_Cox a :Actor ; rdfs:label "Brian Cox" .
+:actor_Julia_Stiles a :Actor ; rdfs:label "Julia Stiles" .
+:actor_Julia_Roberts a :Actor ; rdfs:label "Julia Roberts" .
+:actor_Catherine_Zeta-Jones a :Actor ; rdfs:label "Catherine Zeta-Jones" .
+:actor_Albert_Finney a :Actor ; rdfs:label "Albert Finney" .
+:actor_Emily_Blunt a :Actor ; rdfs:label "Emily Blunt" .
+:actor_Josh_Brolin a :Actor ; rdfs:label "Josh Brolin" .
+:actor_Jake_Gyllenhaal a :Actor ; rdfs:label "Jake Gyllenhaal" .
+:actor_Viola_Davis a :Actor ; rdfs:label "Viola Davis" .
+:actor_Lubna_Azabal a :Actor ; rdfs:label "Lubna Azabal" .
+:actor_Mélissa_Désormeaux-Poulin a :Actor ; rdfs:label "Mélissa Désormeaux-Poulin" .
+:actor_Maxim_Gaudette a :Actor ; rdfs:label "Maxim Gaudette" .
+:actor_Steve_Carell a :Actor ; rdfs:label "Steve Carell" .
+:actor_Jennifer_Lawrence a :Actor ; rdfs:label "Jennifer Lawrence" .
+:actor_Meryl_Streep a :Actor ; rdfs:label "Meryl Streep" .
+:actor_Fionn_Whitehead a :Actor ; rdfs:label "Fionn Whitehead" .
+:actor_Cillian_Murphy a :Actor ; rdfs:label "Cillian Murphy" .
+:actor_John_David_Washington a :Actor ; rdfs:label "John David Washington" .
+:actor_Robert_Pattinson a :Actor ; rdfs:label "Robert Pattinson" .
+:actor_Elizabeth_Debicki a :Actor ; rdfs:label "Elizabeth Debicki" .
+
+# Directors
+:director_Christopher_Nolan a :Director ; rdfs:label "Christopher Nolan" .
+:director_Martin_Scorsese a :Director ; rdfs:label "Martin Scorsese" .
+:director_Quentin_Tarantino a :Director ; rdfs:label "Quentin Tarantino" .
+:director_Anthony_Russo a :Director ; rdfs:label "Anthony Russo" .
+:director_Jon_Favreau a :Director ; rdfs:label "Jon Favreau" .
+:director_Wachowskis a :Director ; rdfs:label "Wachowskis" .
+:director_Ridley_Scott a :Director ; rdfs:label "Ridley Scott" .
+:director_David_Fincher a :Director ; rdfs:label "David Fincher" .
+:director_Francis_Ford_Coppola a :Director ; rdfs:label "Francis Ford Coppola" .
+:director_Frank_Darabont a :Director ; rdfs:label "Frank Darabont" .
+:director_Steven_Spielberg a :Director ; rdfs:label "Steven Spielberg" .
+:director_Bong_Joon-ho a :Director ; rdfs:label "Bong Joon-ho" .
+:director_James_Cameron a :Director ; rdfs:label "James Cameron" .
+:director_Peter_Jackson a :Director ; rdfs:label "Peter Jackson" .
+:director_Robert_Zemeckis a :Director ; rdfs:label "Robert Zemeckis" .
+:director_Damien_Chazelle a :Director ; rdfs:label "Damien Chazelle" .
+:director_George_Miller a :Director ; rdfs:label "George Miller" .
+:director_Alex_Garland a :Director ; rdfs:label "Alex Garland" .
+:director_Denis_Villeneuve a :Director ; rdfs:label "Denis Villeneuve" .
+:director_Alejandro_González_Iñárritu a :Director ; rdfs:label "Alejandro González Iñárritu" .
+:director_Alfonso_Cuarón a :Director ; rdfs:label "Alfonso Cuarón" .
+:director_Park_Chan-wook a :Director ; rdfs:label "Park Chan-wook" .
+:director_Scott_Derrickson a :Director ; rdfs:label "Scott Derrickson" .
+:director_Ryan_Coogler a :Director ; rdfs:label "Ryan Coogler" .
+:director_Jordan_Peele a :Director ; rdfs:label "Jordan Peele" .
+:director_Ari_Aster a :Director ; rdfs:label "Ari Aster" .
+:director_Guillermo_del_Toro a :Director ; rdfs:label "Guillermo del Toro" .
+:director_Sam_Mendes a :Director ; rdfs:label "Sam Mendes" .
+:director_Stanley_Kubrick a :Director ; rdfs:label "Stanley Kubrick" .
+:director_Bryan_Singer a :Director ; rdfs:label "Bryan Singer" .
+:director_Luc_Besson a :Director ; rdfs:label "Luc Besson" .
+:director_Pierre_Morel a :Director ; rdfs:label "Pierre Morel" .
+:director_Guy_Ritchie a :Director ; rdfs:label "Guy Ritchie" .
+:director_Gus_Van_Sant a :Director ; rdfs:label "Gus Van Sant" .
+:director_Tony_Kaye a :Director ; rdfs:label "Tony Kaye" .
+:director_Doug_Liman a :Director ; rdfs:label "Doug Liman" .
+:director_Paul_Greengrass a :Director ; rdfs:label "Paul Greengrass" .
+:director_Steven_Soderbergh a :Director ; rdfs:label "Steven Soderbergh" .
+:director_Adam_McKay a :Director ; rdfs:label "Adam McKay" .
+
+# Genres
+:genre_Action a :Genre ; rdfs:label "Action" .
+:genre_Adventure a :Genre ; rdfs:label "Adventure" .
+:genre_Comedy a :Genre ; rdfs:label "Comedy" .
+:genre_Crime a :Genre ; rdfs:label "Crime" .
+:genre_Drama a :Genre ; rdfs:label "Drama" .
+:genre_Family a :Genre ; rdfs:label "Family" .
+:genre_Fantasy a :Genre ; rdfs:label "Fantasy" .
+:genre_Horror a :Genre ; rdfs:label "Horror" .
+:genre_Mystery a :Genre ; rdfs:label "Mystery" .
+:genre_Romance a :Genre ; rdfs:label "Romance" .
+:genre_Sci-Fi a :Genre ; rdfs:label "Sci-Fi" .
+:genre_Thriller a :Genre ; rdfs:label "Thriller" .
+:genre_War a :Genre ; rdfs:label "War" .
+:genre_Western a :Genre ; rdfs:label "Western" .
+:genre_Biography a :Genre ; rdfs:label "Biography" .
+:genre_Sport a :Genre ; rdfs:label "Sport" .
+:genre_Music a :Genre ; rdfs:label "Music" .
+:genre_Musical a :Genre ; rdfs:label "Musical" .
+:genre_History a :Genre ; rdfs:label "History" .
+
+# Languages
+:lang_English a :Language ; rdfs:label "English" .
+:lang_French a :Language ; rdfs:label "French" .
+:lang_German a :Language ; rdfs:label "German" .
+:lang_Spanish a :Language ; rdfs:label "Spanish" .
+:lang_Korean a :Language ; rdfs:label "Korean" .
+:lang_Japanese a :Language ; rdfs:label "Japanese" .
+:lang_Chinese a :Language ; rdfs:label "Chinese" .
+:lang_Polish a :Language ; rdfs:label "Polish" .
+:lang_Russian a :Language ; rdfs:label "Russian" .
+:lang_Italian a :Language ; rdfs:label "Italian" .
+:lang_Swedish a :Language ; rdfs:label "Swedish" .
+:lang_American_Sign_Language a :Language ; rdfs:label "American Sign Language" .
+:lang_Arabic a :Language ; rdfs:label "Arabic" .
+:lang_Vietnamese a :Language ; rdfs:label "Vietnamese" .
+
